@@ -36,7 +36,7 @@ class Scraper:
         page_range = soup.find(class_='pageRange')
         return int(page_range.text.split(' ')[-1])
 
-    def get_all_pages(self):
+    def get_all_pages(self) -> list:
         listing_pages = list()
         base_url = 'https://www.apartments.com/' + self.city + '-' + self.state + '/'
         first_page = requests.get(base_url, timeout=5, headers=HEADERS)  # get the first page
@@ -49,7 +49,7 @@ class Scraper:
 
         return listing_pages
 
-    def extract_apartment_data(self, listing_pages):
+    def extract_apartment_data(self, listing_pages) -> list:
         """ extract apartments from the pages, calculate travel distance to target"""
         extracted_listings = list()
 
