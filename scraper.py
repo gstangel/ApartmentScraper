@@ -9,9 +9,10 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import googlemaps
-
+from time import sleep
+import webbrowser
 # google api key
-API_KEY = ""
+API_KEY = "AIzaSyCMGwIHcaHwEYjeY_BV1vNJzyx9-eoWmJ4"
 
 # google maps client
 gmaps = googlemaps.Client(key=API_KEY)
@@ -43,9 +44,9 @@ class Scraper:
         listing_pages.append(first_page)
         num_pages = self.find_num_pages(first_page)
         for i in range(2, num_pages):
-            print("Getting page {}".format(i))
             cur_page = base_url + str(i) + '/'
-            listing_pages.append(requests.get(base_url, timeout=5, headers=HEADERS))
+            webbrowser.open(cur_page)
+            listing_pages.append(requests.get(cur_page, timeout=5, headers=HEADERS))
 
         return listing_pages
 
