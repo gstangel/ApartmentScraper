@@ -12,7 +12,7 @@ import googlemaps
 from time import sleep
 import webbrowser
 # google api key
-API_KEY = "AIzaSyCMGwIHcaHwEYjeY_BV1vNJzyx9-eoWmJ4"
+API_KEY = ""
 
 # google maps client
 gmaps = googlemaps.Client(key=API_KEY)
