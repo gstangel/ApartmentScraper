@@ -116,7 +116,7 @@ class Scraper:
         return lat, lng
 
 if __name__ == '__main__':
-    scraper = Scraper(state='az', city='tucson', target_address="9000 S Rita Rd, Tucson, AZ 85747")
+    scraper = Scraper(state='', city='', target_address="")
     pages = scraper.get_all_pages()
     extracted_listings = scraper.extract_apartment_data(pages)
     scraper.export_to_excel(extracted_listings)
